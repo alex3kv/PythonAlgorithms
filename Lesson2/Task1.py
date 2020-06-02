@@ -7,4 +7,42 @@
 # знак операции.  Также она должна сообщать пользователю о невозможности
 # деления на ноль, если он ввел его в качестве делителя.
 #
-pass
+def calculate(a, b, o):
+    if o == "+":
+        return a + b
+    elif o == "-":
+        return a - b
+    elif o == "*":
+        return a * b
+    elif o == "/":        
+        return a / b    
+
+
+while True:
+    
+    o = None
+
+    while True:
+        o = input("Введите знак операции = ")
+        if o == "0" or o == "+" or o == "-" or o == "*" or o == "/":
+            break
+        print("Введенный знак не поддерживается, использует только поддерживаемые знаки.")
+        print()
+
+    if o == "0":
+        break
+
+    print()
+    a = float(input("Введите первый аргумент = "))
+    b = float(input("Введите второй аргумент = "))
+    print()
+           
+    if o == "/" and b == 0:        
+        print("На ноль делить нельзя")
+        print()
+        continue
+        
+    r = calculate(a, b, o)
+        
+    print(f"Для выражения \"{a} {o} {b}\" получен результат = {r}")
+    print()
