@@ -3,4 +3,29 @@
 
 Примечание. Решите задачу при помощи построения графа.
 '''
-pass
+N = 4
+
+matrix_adjacency = []
+
+for i in range(N):
+    row = []
+    for j in range(N):
+        if i == j:
+            row.append(0)
+        else:
+            row.append(1)
+
+    matrix_adjacency.append(row)
+
+# так как для случая задачи имеем простой граф где каждый друг это вершина
+# графа а рукопожатие это ребро графа, получаем что количество уникальных
+# рукопожатий это сумма значений матрицы смежности поделенное пополам
+count = sum([sum(el) for el in matrix_adjacency])
+#print(count)
+
+result = int(count / 2)
+print(f"Для количества дррузей {N} рукопожатий было: {result}")
+
+print()
+print("Матрица смежности для всех вершин графа:")
+print(matrix_adjacency)
